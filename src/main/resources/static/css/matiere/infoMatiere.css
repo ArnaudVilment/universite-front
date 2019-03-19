@@ -1,0 +1,109 @@
+body{
+	background-size:100%;
+  	background-color: opacity 0.7;
+}
+
+#conteneur{
+	width: 60%;
+	margin-left: 250px;
+	display : flex;
+	flex-direction : column;
+}
+
+#intitule{
+	padding: 5px 5px 5px 10px;
+	width: 400px;
+	border : 2px solid white;
+	border-radius : 10px;
+	font-weight : bold;
+	font-family : Arial;
+	font-size : 25px;
+	display : flex;
+	justify-content : space-around;
+	background-color : rgba(192,192,192,0.7);
+	margin-top : 50px;
+	margin-left: 132px;
+	text-transform : uppercase;	
+	text-shadow : 2px 2px 4px red;
+	color : white
+
+}
+
+#infos {	
+	height: 290px;
+	width: 600px;
+	font-weight : bold;
+	font-family : Arial;
+	font-size : 20px;
+	text-align : left;
+	margin-top : -150px;
+	margin-left: 138px;
+
+}
+
+h1{
+	text-align: center;
+	color: #55715c;
+	background-color :rgba(192,192,192,0.7);
+	width: 56%;
+	margin-left: 20%;
+	border-radius : 10px;
+}
+
+#imgUti {
+	width : 500px;
+	height : 400px;
+	margin-left : 650px;
+	opacity : 0.7;	
+	border-radius : 200px;	
+	margin-top : -100px;
+}
+
+#modif {
+	height: 50px;
+	margin-bottom: -150px;
+	margin-left : 845px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a img {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.icon {
+	height: 25px;
+	width: 25px;
+}
+
+.icon2 {
+	height: 35px;
+	width: 35px;
+	margin-left: 300px
+}
+
+#lienRetour {
+
+	margin-left: -300px;
+}
+
+.lienAction {
+	
+}
+
+#envoyer a:hover {
+background:url('http://mamietitine.m.a.pic.centerblog.net/Sun_Pin.png') no-repeat;
+}

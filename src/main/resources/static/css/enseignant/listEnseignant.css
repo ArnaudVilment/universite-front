@@ -1,0 +1,59 @@
+h1{
+	text-align: center;
+	color: #55715c;
+	background-color :rgba(192,192,192,0.7);
+	width: 56%;
+	margin-left: 20%;
+	border-radius : 10px;
+}
+#conteneur{
+	width: 65%;
+	margin: auto;
+	text-align: center;
+    
+}
+
+p {
+	margin-top: -2px;
+}
+
+.blockPhoto {
+	border-radius : 10px;
+	padding: 5px 5px 5px 5px;
+	border:1px white solid;	
+	margin: auto;
+	float: left;
+	height: 340px;
+	width: 270px;
+	background-color: rgba(192,192,192,0.7);
+}
+img {
+	height: 220px
+}
+
+.icon {
+	height: 20px;
+	width: 20px;
+}
+#action {
+	width: 55%;
+	margin-left: 350px;
+	background-color: azure,
+}
+
+#iconRech {
+	margin-left: 150px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 5px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.action {
+  float: left;
+  width : 25px;
+  margin: 5px 5px 0 0;
+}

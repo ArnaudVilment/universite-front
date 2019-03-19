@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Ajout / Modification d'un enseignant</title>
+<link rel="stylesheet" th:href="@{/css/inc/header.css}"/>
+<link rel="stylesheet" th:href="@{/css/enseignant/newEnseignant.css}"/>
+</head>
+<body>
+
+	<header th:insert="inc/header.html"> </header>
+		
+	<fieldset>
+	        <legend> Ajout / Modification d'un Enseignant</legend>
+				<form th:action="@{/saveEnseignant}" method="POST" class="color" th:object="${ens}" id="form">
+	    
+			        <input type="hidden"  id="id" name="id" class="dim_block2" th:field="*{id}"/>
+			        <label>Sexe :</label>
+			        <input id="radio" type="RADIO" name="sexe" value="Mr" class="dim_block2" th:field="*{sexe}" th:text="Hommes"/>
+			        <input id="radio" type="RADIO" name="sexe" value="Mme" class="dim_block2" th:field="*{sexe}" th:text="Femmes"/>
+			        <br/>
+			        <br/>
+			        <label>N° Enseignant :</label>
+			        <input type="number" id="numero_enseignant" value="" name="numero_enseignant" class="dim_block2" th:field="*{numero_enseignant}"/>
+			        <br/>
+			        <br/>
+			        <label>Nom :</label>
+			        <input type="text" id="nom" name="nom" class="dim_block2"  th:field="*{nom}"/>
+			        <br/>
+			        <br/>
+			        <label>Prénom :</label>
+			        <input type="text" id="prenom" name="prenom" class="dim_block2"  th:field="*{prenom}"/>
+			        <br/>
+			        <br/>
+			        <label>Date naissance :</label>
+			        <input type="date" id="date_naissance" name="date_naissance" class="dim_block2" th:field="*{date_naissance}"/>
+			        <br/>
+			        <br/>
+			        <label>Grade :</label>
+			        <input type="text" id="grade" name="grade" class="dim_block2" th:field="*{grade}"/>
+			        <br/>
+			        <br/>
+			        <label>Date d'embauche :</label>
+			        <input type="date" id="date_embauche" name="date_embauche" class="dim_block2" th:field="*{date_embauche}"/>
+			        <input type="hidden"  id="photo" name="photo" class="dim_block2" th:field="*{photo}"/>
+			        <br/>
+			        <br/>	
+			        <!--  <label>Matière enseignée(s) :</label> 
+			        	<p class="listMat" th:each="mat : ${listMatiereEns}"><a th:href="@{'../delMatiereEns/' + ${ mat.id } + '/' + ${ ens.id }}"><img class="icon" th:src="@{/images/icone_sup.jpg}"/></a><b th:text="${mat.nom}"/></p>
+			
+				  <br/>-->
+		    	  <div id="bt">
+			    	  <input type="button" value="Envoyer" class="dim_block4" id="colorBlock" onClick="validerForm();"/>
+			          <input type="reset" value="Annuler" class="dim_block4" id="colorBlock"/>
+		          </div>
+	    
+			  </form>
+			  <form th:action="@{/editMatiereEns}" method="POST" class="color">
+			  		<input type="hidden" id="idEns" name="idEns" class="dim_block2" th:value="${ens.id}"/>
+			  		
+			        <label id="label">Ajouter une Matière :</label> 
+			        <select class="dim_block2" name="idMat">
+			        	   <option></option>
+		                   <option th:each="mat : ${listMatiere}" th:value="${mat.id}" th:utext="${mat.nom}"/>
+		            </select>   
+		            <div id="bt2">
+		            	<input type="submit" value="Ajouter" class="dim_block4" id="colorBlock"/>
+		            </div>
+		      </form>       
+	    </fieldset>
+    	
+	<div id="#lienRetour">
+		<a id="lienRetour" th:href="@{../listEnseignant}"><img class="icon2" th:src="@{/images/iconRet.jpg}"/></a>	
+	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" th:src="@{/js/enseignant/checkEnseignant.js}"></script>
+	
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Information de la matière</title>
+<link rel="stylesheet" th:href="@{/css/inc/header.css}"/>
+<link rel="stylesheet" th:href="@{/css/matiere/infoMatiere.css}"/>
+</head>
+<body>
+
+	<header th:insert="inc/header.html"> </header>
+		
+	<h1>Information de la matière</h1>
+	
+	<div id="conteneur">		
+		<div id="intitule">
+				<p th:text="${ mat.numero_matiere }"></p>
+				<p th:text="${ mat.nom }"></p>
+				<p th:text="${ mat.coef }"></p>			
+		</div>	
+		<div id="photo">				
+				<img id="imgUti" th:src="@{ ${ mat.enseignant.photo }}"/>	
+		</div>
+		<div id="modif">
+			<ul>
+				<li><a th:href="@{'../editMatiere/' + ${ mat.id }}"><img class="icon" th:src="@{/images/icone_mod2.jpg}"/></a></li>
+				<li><a th:href="@{'../delMatiere/' + ${ mat.id }}"><img class="icon" th:src="@{/images/icone_sup.jpg}"/></a></li>
+			</ul>				
+		</div>	
+		
+		<div id="intitule">
+				<p th:text="${ mat.enseignant.nom }"></p>
+				<p th:text="${ mat.enseignant.prenom }"></p>
+				<p th:text="${ mat.enseignant.sexe }"></p>		
+				<p th:text="${ mat.enseignant.grade }"></p>		
+		</div>
+		<div id="infos">							
+				<br/><br/><br/><br/><br/>
+				<a id="lienRetour" th:href="@{../listMatiere}"><img class="icon2" th:src="@{/images/iconRet.jpg}"/></a>	
+		</div>	
+						
+	</div>	
+</body>
+</html>

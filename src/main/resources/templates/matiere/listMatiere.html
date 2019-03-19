@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Liste des matieres</title>
+<link rel="stylesheet" th:href="@{/css/inc/header.css}"/>
+<link rel="stylesheet" th:href="@{/css/matiere/listMatiere.css}"/>
+</head>
+<body>
+
+	<header th:insert="inc/header.html"></header>
+		
+	<h1>Liste des matieres</h1>
+	
+	<form th:action="@{/cherchMatiere}" method="POST" th:object="${mat}">
+	<div id="action">
+		<ul>
+			<li class="action"><a class="lienAction" th:href="@{/newMatiere}"><img class="icon" th:src="@{/images/newUti.png}"/></a></li>
+			<li class="action"><a class="lienAction" th:href="@{/triMatiereAsc}"><img class="icon" th:src="@{/images/triAsc.png}"/></a></li>
+			<li class="action"><a class="lienAction" th:href="@{/triMatiereDesc}"><img class="icon" th:src="@{/images/triDesc.png}"/></a></li>
+			<li class="action"><input class="rech" type="text" id="nom" name="nom"/></li>
+			<li class="action"><input id="iconRech" class="icon" type="image" alt="Login" src="/images/rech.jpg" /></li>
+		</ul>	
+	</div> 
+	</form>
+	
+	<div id="conteneur">
+		<div id="contenenant" th:each="mat : ${ listMatiere }">
+		<div class="blockMatiere">
+			<a th:href="@{'/infoMatiere/' + ${mat.id}}">Plus d'info</a>
+			<div th:text="${ mat.numero_matiere }"></div>
+			<div th:text="${ mat.nom }"></div>		
+			<div th:text="${ mat.coef }"></div>		
+			<div th:text="${ mat.enseignant.nom }"></div>	
+			<div th:text="${ mat.enseignant.prenom }"></div>	
+			<div id="photo">				
+				<img id="imgUti" th:src="@{ ${ mat.enseignant.photo }}"/>	
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Information de l'enseignant</title>
+<link rel="stylesheet" th:href="@{/css/inc/header.css}"/>
+<link rel="stylesheet" th:href="@{/css/enseignant/infoEnseignant.css}"/>
+</head>
+<body>
+
+	<header th:insert="inc/header.html"> </header>
+
+	<h1>Information de l'enseignant</h1>
+	
+	<div id="conteneur">		
+		<div id="intitule">
+				<p th:text="${ ens.nom }"></p>
+				<p th:text="${ ens.prenom }"></p>
+				<p th:text="${ ens.sexe }"></p>		
+				<p th:text="${ ens.grade }"></p>		
+		</div>
+		<div id="photo">				
+				<img id="imgUti" th:src="@{ ${ ens.photo }}"/>	
+		</div>	
+		<div id="modif">
+			<ul>
+				<li><a th:href="@{'../editEnseignant/' + ${ ens.id }}"><img class="icon" th:src="@{/images/icone_mod2.jpg}"/></a></li>
+				<li><a th:href="@{'../delEnseignant/' + ${ ens.id }}"><img class="icon" th:src="@{/images/icone_sup.jpg}"/></a></li>
+			</ul>				
+		</div>	
+		<div id="infos">	
+				<p th:text="'Date de naissance : ' + ${ ens.date_naissance }"></p>							
+				<p th:text="'Date de\'embauche : ' + ${ ens.date_embauche }"></p>	
+				<br/><br/><br/><br/><br/>
+				<a id="lienRetour" th:href="@{../listEnseignant}"><img class="icon2" th:src="@{/images/iconRet.jpg}"/></a>	
+		</div>	
+		<!--  <div id="matiere">
+			<ul th:each="mat : ${ ens.listMatiere }">
+				<li th:text="${ mat.nom } + ', coef: ' + ${ mat.coef }"></li>
+			</ul>
+		</div>-->
+						
+	</div>	
+</body>
+</html>

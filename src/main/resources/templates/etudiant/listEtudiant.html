@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Liste des étudiants</title>
+<link rel="stylesheet" th:href="@{/css/inc/header.css}"/>
+<link rel="stylesheet" th:href="@{/css/etudiant/listEtudiant.css}"/>
+</head>
+<body>
+	<header th:insert="inc/header.html"> </header>
+	
+	<h1>Liste des étudiants</h1>
+	
+	<form th:action="@{/cherchEtudiant}" method="POST" th:object="${etu}">
+	<div id="action">
+		<ul>
+			<li class="action"><a class="lienAction" th:href="@{/newEtudiant}"><img class="icon" th:src="@{/images/newUti.png}"/></a></li>
+			<li class="action"><a class="lienAction" th:href="@{/triEtudiantAsc}"><img class="icon" th:src="@{/images/triAsc.png}"/></a></li>
+			<li class="action"><a class="lienAction" th:href="@{/triEtudiantDesc}"><img class="icon" th:src="@{/images/triDesc.png}"/></a></li>
+			<li class="action"><input class="rech" type="text" id="nom" name="nom"/></li>
+			<li class="action"><input id="iconRech" class="icon" type="image" alt="Login" src="/images/rech.jpg" /></li>
+		</ul>	
+	</div> 
+	</form>
+	
+	<div id="conteneur">
+		<div id="contenenant" th:each="etu : ${ listEtudiant }">
+			<div class="blockEtudiant">
+				<p th:text="'N° : ' + ${ etu.numero_etudiant } + ' ' + ${ etu.sexe } + ' ' + ${ etu.nom } + ' ' + ${ etu.prenom }"></p>		
+				<a th:href="@{'/infoEtudiant/' + ${ etu.id }}"><img id="photo" th:src="@{ ${ etu.photo }}"/></a>
+				<p th:text="'Date de naissance : ' + ${ etu.date_naissance }"></p>
+			</div>
+			<!--  <div id="blockNote"  th:each="note : ${ etu.listNote }">	
+				<div th:text="${ note.note }"></div>	
+			</div>-->
+		</div>
+	</div>
+	
+</body>
+</html>

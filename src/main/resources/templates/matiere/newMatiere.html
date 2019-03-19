@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Ajout / Modification d'une matière</title>
+<link rel="stylesheet" th:href="@{/css/inc/header.css}"/>
+<link rel="stylesheet" th:href="@{/css/matiere/newMatiere.css}"/>
+</head>
+<body>
+
+	<header th:insert="inc/header.html"> </header>
+	
+	<form th:action="@{/newMatiere}" method="POST" class="color" th:object="${mat}">
+	    <fieldset>
+	        <legend>Ajout / Modification d'une matière</legend>
+	        
+	        <input type="hidden"  id="id" name="id" class="dim_block2" th:field="*{id}"/>
+	        <label>N° Matière :</label>
+	        <br/>
+	        <input type="text" id="numero_matiere" name="numero_matiere" class="dim_block2" th:field="*{numero_matiere}"/>
+	        <br/>	        
+	        <br/>
+	        <label>Nom :</label>
+	        <br/>
+	        <input type="text" id="nom" name="nom" class="dim_block2"  th:field="*{nom}"/>
+	        <br/>
+	        <br/>
+	        <label>Coef :</label>
+	        <br/>
+	        <input type="text" id="coef" name="coef" class="dim_block2"  th:field="*{coef}"/>
+	        <br/>
+	        <br/>
+	        <label>Enseignant :</label> 
+	        <br/>
+	        <select th:field="*{enseignant}">
+				<option 
+					th:each="enseignant: ${listEnseignant}" 
+					th:value="${enseignant.id}" 
+					th:text="${enseignant.nom + ' ' + enseignant.prenom}">
+				</option>
+			</select>  
+	    </fieldset>
+    	<br/>
+	    <input type="submit" value="Envoyer" class="dim_block4" id="colorBlock"/>
+	    <input type="reset" value="Annuler" class="dim_block4" id="colorBlock"/>
+	    
+	</form>
+	<div id="#lienRetour">
+		<a id="lienRetour" th:href="@{../listMatiere}"><img class="icon2" th:src="@{/images/iconRet.jpg}"/></a>	
+	</div>
+</body>
+</html>

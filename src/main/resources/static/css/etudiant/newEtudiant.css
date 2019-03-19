@@ -1,0 +1,61 @@
+h1{
+	text-align: center;
+	color: #55715c;
+	background-color :rgba(192,192,192,0.7);
+	width: 50%;
+	margin: auto;
+	border-radius : 10px;
+}
+form{
+    width: 210px;
+    margin: auto;
+    color: #997a79
+}
+
+.dim_block2{
+    width: 180px;
+    background: rgba(192,192,192,0.7);
+    color: black;
+    border-radius: 5px;
+}
+
+.dim_block3{
+    width: 180px;
+    height: 80px;
+    border-left: rgba(192,192,192,0.7);
+    background: rgba(192,192,192,0.7);
+    border-radius: 5px;
+}
+
+.dim_block4{
+    width: 100px;
+    margin-left: 3px;
+    border-radius: 5px;
+}
+
+label{
+    color: black;
+}
+
+fieldset{
+	font-style: gras;
+    color: rgba(192,192,192,0.7);
+    border-color: rgba(192,192,192,0.7);
+    border-radius: 5px;
+    border: solid 5px;
+}
+
+#colorBlock{
+    background: rgba(192,192,192,0.7);
+    color: black;
+    mask-border-mode: inherit;
+}
+
+.icon2 {
+	height: 35px;
+	width: 35px;
+}
+
+#lienRetour {
+	margin-left: 470px;
+}

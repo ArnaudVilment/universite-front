@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Ajout / Modification d'un etudiant</title>
+<link rel="stylesheet" th:href="@{/css/inc/header.css}"/>
+<link rel="stylesheet" th:href="@{/css/etudiant/newEtudiant.css}"/>
+</head>
+<body>
+
+	<header th:insert="inc/header.html"> </header>
+		
+	<form th:action="@{/newEtudiant}" method="POST" class="color" th:object="${etu}">
+	    <fieldset>
+	        <legend>Ajout / Modification d'un etudiant</legend>
+	        
+	        <input type="hidden"  id="id" name="id" class="dim_block2" th:field="*{id}"/>
+	        <label>Sexe :</label>
+	        <br/>
+	        <input type="RADIO" name="sexe" value="Mr" th:field="*{sexe}"/>Hommes<input type="RADIO" name="sexe" value="Mme"  th:field="*{sexe}"/>Femmes
+	        <br/>
+	        <br/>
+	        <label>N° Etudiant :</label>
+	        <br/>
+	        <input type="text" id="numero_etudiant" name="numero_etudiant" class="dim_block2" th:field="*{numero_etudiant}"/>
+	        <br/>	        
+	        <br/>
+	        <label>Nom :</label>
+	        <br/>
+	        <input type="text" id="nom" name="nom" class="dim_block2"  th:field="*{nom}"/>
+	        <br/>
+	        <br/>
+	        <label>Prénom :</label>
+	        <br/>
+	        <input type="text" id="prenom" name="prenom" class="dim_block2"  th:field="*{prenom}"/>
+	        <br/>
+	        <br/>
+	        <label>Date naissance :</label>
+	        <br/>
+	        <input type="date" id="date_naissance" name="date_naissance" class="dim_block2" th:field="*{date_naissance}"/>
+	        <br/>
+	        <br/>	        
+	    </fieldset>
+    	<br/>
+	    <input type="submit" value="Envoyer" class="dim_block4" id="colorBlock"/>
+	    <input type="reset" value="Annuler" class="dim_block4" id="colorBlock"/>
+	    
+	</form>
+	<div id="#lienRetour">
+		<a id="lienRetour" th:href="@{../listEtudiant}"><img class="icon2" th:src="@{/images/iconRet.jpg}"/></a>	
+	</div>
+</body>
+</html>

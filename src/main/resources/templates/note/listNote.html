@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Liste des notes</title>
+<link rel="stylesheet" th:href="@{/css/inc/header.css}"/>
+<link rel="stylesheet" th:href="@{/css/note/listNote.css}"/>
+</head>
+<body>
+
+	<header th:insert="inc/header.html"> </header>
+	
+	<h1>Liste des notes</h1>
+	
+	<div id="action">
+		<ul>
+			<li class="action"><a class="lienAction" th:href="@{/newNote}"><img class="icon" th:src="@{/images/newUti.png}"/></a></li>
+			<li class="action"><a class="lienAction" th:href="@{/triNoteAsc}"><img class="icon" th:src="@{/images/triAsc.png}"/></a></li>
+			<li class="action"><a class="lienAction" th:href="@{/triNoteDesc}"><img class="icon" th:src="@{/images/triDesc.png}"/></a></li>
+			<li class="action"><input class="rech" type="text" id="nom" name="nom"/></li>
+			<li class="action"><input id="iconRech" class="icon" type="image" alt="Login" src="/images/rech.jpg" /></li>
+		</ul>	
+	</div> 
+
+	<div id="conteneur">
+		<div id="contenenant"th:each="note : ${ listNote }">
+			<div class="blockNote">
+				<a th:href="@{'/editNote/' + ${note.etudiant.id} + '/' + ${note.matiere.id}}"><img class="icon" th:src="@{/images/icone_mod2.jpg}"/></a>
+				<a th:href="@{'/delNote/' + ${note.etudiant.id} + '/' + ${note.matiere.id}}"><img class="icon" th:src="@{/images/icone_sup.jpg}"/></a></a>
+				<p th:text="${ note.etudiant.sexe} + ' ' + ${ note.etudiant.nom} + ' ' + ${ note.etudiant.prenom}"></p>
+				<a th:href="@{'/infot/'}"><img id="photo" th:src="@{ ${ note.etudiant.photo }}"/></a>
+				<p th:text="'Matiere : ' + ${note.matiere.nom} + ', Note : ' + ${ note.note}"></p>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

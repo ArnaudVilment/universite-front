@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajout / Modification d'une note</title>
+<link rel="stylesheet" th:href="@{/css/inc/header.css}"/>
+<link rel="stylesheet" th:href="@{/css/note/newNote.css}"/>
+</head>
+<body>
+	<header th:insert="inc/header.html"> </header>
+	
+	<form th:action="@{/newNote}" method="POST" class="color" th:object="${note}">
+	    <fieldset>
+	        <legend>Ajout / Modification d'une note</legend>
+	        
+	        
+	        <label>Note :</label>
+
+	        <input type="text" id="note" name="note" class="dim_block2" th:field="*{note}"/>
+	        <br/>	        
+	        <br/>
+	        <label>Liste des matières :</label>
+	        <select class="dim_block2" th:field="*{matiere}">
+				<option 
+					th:each="mat: ${listMatiere}" 
+					th:value="${mat.id}" 
+					th:text="${mat.nom}">
+				</option>
+			</select>  
+	        <br/>
+	        <br/>
+	        <label>Liste des étudiants :</label>
+	        <select class="dim_block2" th:field="*{etudiant}">
+				<option 
+					th:each="etu: ${listEtudiant}" 
+					th:value="${etu.id}" 
+					th:text="${etu.nom + ' ' + etu.prenom}">
+				</option>
+			</select>  
+	    </fieldset>
+    	<br/>
+	    <input type="submit" value="Envoyer" class="dim_block4" id="colorBlock"/>
+	    <input type="reset" value="Annuler" class="dim_block4" id="colorBlock"/>
+	    
+	</form>
+	<div id="#lienRetour">
+		<a id="lienRetour" th:href="@{../listNote}"><img class="icon2" th:src="@{/images/iconRet.jpg}"/></a>	
+	</div>
+</body>
+</html>

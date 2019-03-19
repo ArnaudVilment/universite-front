@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<link rel="stylesheet" th:href="@{/css/inc/header.css}"/>
+<link rel="stylesheet" th:href="@{/css/etudiant/infoEtudiant.css}"/>
+</head>
+<body>
+
+	<header th:insert="inc/header.html"> </header>
+	
+	<h1>Information de l'étudiant</h1>
+	
+	<div id="conteneur">		
+		<div id="intitule">
+				<p th:text="${ etu.nom }"></p>
+				<p th:text="${ etu.prenom }"></p>
+				<p th:text="${ etu.sexe }"></p>				
+		</div>
+		<div id="photo">				
+				<img id="imgUti" th:src="@{ ${ etu.photo }}"/>	
+		</div>
+		<div id="modif">
+			<ul>
+				<li><a th:href="@{'../editEtudiant/' + ${ etu.id }}"><img class="icon" th:src="@{/images/icone_mod2.jpg}"/></a></li>
+				<li><a th:href="@{'../delEtudiant/' + ${ etu.id }}"><img class="icon" th:src="@{/images/icone_sup.jpg}"/></a></li>
+			</ul>				
+		</div>	
+		
+		<div id="note">
+			<ul th:each="etu : ${ etu.listNote }">
+				<li th:text="${ etu.note }"></li>
+			</ul>
+		</div>
+		
+		<div id="infos">	
+				<p th:text="${ etu.date_naissance }"></p>							
+				<br/><br/><br/><br/><br/>
+				<a id="lienRetour" th:href="@{../listEtudiant}"><img class="icon2" th:src="@{/images/iconRet.jpg}"/></a>	
+		</div>	
+						
+	</div>	
+</body>
+</html>

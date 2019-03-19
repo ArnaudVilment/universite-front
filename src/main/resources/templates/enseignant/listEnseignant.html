@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Liste des enseignants</title>
+<link rel="stylesheet" th:href="@{/css/inc/header.css}"/>
+<link rel="stylesheet" th:href="@{/css/enseignant/listEnseignant.css}"/>
+</head>
+<body>
+
+	<header th:insert="inc/header.html"> </header>
+	
+	<h1>Liste des enseignants</h1>
+	
+	<form th:action="@{/cherchEnseignant}" method="POST" th:object="${ens}">
+	<div id="action">
+		<ul>
+			<li class="action"><a class="lienAction" th:href="@{/newEnseignant}"><img class="icon" th:src="@{/images/newUti.png}"/></a></li>
+			<li class="action"><a class="lienAction" th:href="@{/triEnseignantAsc}"><img class="icon" th:src="@{/images/triAsc.png}"/></a></li>
+			<li class="action"><a class="lienAction" th:href="@{/triEnseignantDesc}"><img class="icon" th:src="@{/images/triDesc.png}"/></a></li>
+			<li class="action"><input class="rech" type="text" id="nom" name="nom"/></li>
+			<li class="action"><input id="iconRech" class="icon" type="image" alt="Login" src="/images/rech.jpg" /></li>
+		</ul>	
+	</div> 
+	</form>
+	
+	<div id="conteneur">
+		<div id="contenant" th:each="ens : ${ listEnseignant }">
+			<div class="blockPhoto">
+				<p th:text="'N° : ' + ${ ens.numero_enseignant } + ' ' + ${ ens.sexe } + ' ' + ${ ens.nom } + ' ' + ${ ens.prenom }"></p>		
+				<a th:href="@{'/infoEnseignant/' + ${ens.id}}"><img th:src="@{ ${ ens.photo }}"/></a>
+				<p th:text="'Grade : ' + ${ ens.grade }"></p>
+				<p th:text="'Date de naissance : ' + ${ ens.date_naissance }"></p>
+				<p th:text="'Date d\'embauche : ' + ${ ens.date_embauche }"></p>
+				<!-- ul th:each="mat : ${ ens.listMatiere }">
+					<li th:text="${ mat.nom } + ', coef: ' + ${ mat.coef }"></li>
+				</ul>-->
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

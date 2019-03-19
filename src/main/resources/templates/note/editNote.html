@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Modification d'une note</title>
+<link rel="stylesheet" th:href="@{/css/inc/header.css}"/>
+<link rel="stylesheet" th:href="@{/css/note/newNote.css}"/>
+</head>
+<body>
+	<header th:insert="inc/header.html"> </header>
+	
+	<form th:action="@{/editNote}" method="POST" class="color" th:object="${note}">
+	    <fieldset>
+	        <legend>Modification d'une note</legend>
+	        
+	        
+	        <label>Note :</label>
+
+	        <input type="text" id="note" name="note" class="dim_block2" th:field="*{note}"/>
+	        <br/>	        
+	        <br/>
+	        <label>Matière :</label>
+	        <span th:text="${mat.nom}"></span>
+	        <input type="hidden" id="id_matiere" name="id_matiere" th:value="${note.matiere.id}"/>
+	        <br/>
+	        <br/>
+	        <label>Etudiant :</label>
+	        <span th:text="${etu.nom} + ' ' + ${etu.prenom}"></span>
+	        <input type="hidden" id="id_etudiant" name="id_etudiant" th:value="${note.etudiant.id}"/>
+	    </fieldset>
+    	<br/>
+	    <input type="submit" value="Envoyer" class="dim_block4" id="colorBlock"/>
+	    <input type="reset" value="Annuler" class="dim_block4" id="colorBlock"/>
+	    
+	</form>
+	<div id="#lienRetour">
+		<a id="lienRetour" th:href="@{../listNote}"><img class="icon2" th:src="@{/images/iconRet.jpg}"/></a>	
+	</div>
+</body>
+</html>
