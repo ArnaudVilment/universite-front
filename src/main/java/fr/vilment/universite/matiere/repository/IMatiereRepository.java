@@ -7,7 +7,8 @@ import fr.vilment.universite.matiere.domain.Matiere;
 public interface IMatiereRepository {
 
 	public List<Matiere> findAll();
-    public List<Matiere> findAllNonEns(int idEns);
+    public List<Matiere> findAllMatiereEns(int idEns);
+    public List<Matiere> findAllMatiereNonEns(int idEns);
     public List<Matiere> findAllByIdMatiere(int idMat);
     public Matiere getOne(int id);
     public void deleteById(int id);

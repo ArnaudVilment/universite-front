@@ -25,10 +25,22 @@ public class MatiereRepositoryImpl implements IMatiereRepository {
 
 		return lM;
 	}
+	
+	@Override
+	public List<Matiere> findAllMatiereEns(int idEns) {
+		List<Matiere> lM = restT.exchange("http://localhost:8080/matieresEns/" + idEns, 
+				 HttpMethod.GET, 
+				 null,
+				 new ParameterizedTypeReference<List<Matiere>>(){},
+				 idEns
+			    ).getBody();
+
+		return lM;
+	}
 
 	@Override
-	public List<Matiere> findAllNonEns(int idEns) {
-		List<Matiere> lM = restT.exchange("http://localhost:8080/matieresEns/{idEns}", 
+	public List<Matiere> findAllMatiereNonEns(int idEns) {
+		List<Matiere> lM = restT.exchange("http://localhost:8080/matieresNonEns/{idEns}", 
 				 HttpMethod.GET, 
 				 null,
 				 new ParameterizedTypeReference<List<Matiere>>(){},

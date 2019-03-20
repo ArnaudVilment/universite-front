@@ -71,6 +71,19 @@ public class EnseignantRepositoryImpl implements IEnseignantRepository {
 		return lE;
 	}
 	
+	/*@Override ou cellle ci
+	public List<Enseignant> rechercheEnseignants(String nom) {
+		
+		List<Enseignant> lE = restT.exchange("http://localhost:8080/enseignants/search/" + nom, 
+				 HttpMethod.GET, 
+				 null,
+				 new ParameterizedTypeReference<List<Enseignant>>(){},
+			    ).getBody();
+
+
+		return lE;
+	}*/
+	
 	@Override
 	public List<Enseignant> triEnseignantAsc() {
 		

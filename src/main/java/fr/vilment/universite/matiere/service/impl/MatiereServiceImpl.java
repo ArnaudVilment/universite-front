@@ -22,9 +22,15 @@ public class MatiereServiceImpl implements IMatiereService {
 	}
 	
 	@Override
+	public List<Matiere> selectAllMatiereEns(int idEns) {
+		// TODO Auto-generated method stub
+		return mR.findAllMatiereEns(idEns);
+	}
+	
+	@Override
 	public List<Matiere> selectAllMatiereNonEns(int idEns) {
 		// TODO Auto-generated method stub
-		return mR.findAllNonEns(idEns);
+		return mR.findAllMatiereNonEns(idEns);
 	}
 	
 	@Override

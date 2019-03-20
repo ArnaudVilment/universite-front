@@ -16,6 +16,7 @@ public class EnseignantServiceImpl implements IEnseignantService {
 
 	@Autowired
 	private IEnseignantRepository eR;
+	@Autowired
 	private IMatiereRepository mR;
 
 	@Override
@@ -29,10 +30,10 @@ public class EnseignantServiceImpl implements IEnseignantService {
 	@Override
 	public Enseignant selectOn(int id) {
 		// TODO Auto-generated method stub
-		List<Matiere> lM = mR.findAllMatiereEns(id);
+		//List<Matiere> lM = mR.findAllMatiereEns(id);
 		Enseignant ens = eR.getOne(id);
 		checkPhoto(ens);
-		ens.setListMatiere(lM);
+		//ens.setListMatiere(lM);
 		return ens;
 	}
 

@@ -14,6 +14,7 @@ public interface IMatiereService {
 	public List<Matiere> findAllByOrderByNom();
 	public List<Matiere> findAllByOrderByNomDesc();
 	
+	public List<Matiere> selectAllMatiereEns(int idEns);
 	public List<Matiere> selectAllMatiereNonEns(int idEns);
 	public List<Matiere> selectAllMatiereByIdMat(int idMat);
 	
