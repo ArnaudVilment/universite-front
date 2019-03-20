@@ -29,10 +29,10 @@ public class EnseignantServiceImpl implements IEnseignantService {
 	@Override
 	public Enseignant selectOn(int id) {
 		// TODO Auto-generated method stub
-		//List<Matiere> lM = mR.findAllNonEns(id);
+		List<Matiere> lM = mR.findAllMatiereEns(id);
 		Enseignant ens = eR.getOne(id);
 		checkPhoto(ens);
-		//ens.setlM(lM);
+		ens.setListMatiere(lM);
 		return ens;
 	}
 

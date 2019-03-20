@@ -23,14 +23,8 @@ public class Enseignant implements Serializable {
 	private Date date_embauche;
 	private String photo;
 	
-	private List<Matiere> lM;
+	private List<Matiere> listMatiere;
 	
-	public List<Matiere> getlM() {
-		return lM;
-	}
-	public void setlM(List<Matiere> lM) {
-		this.lM = lM;
-	}
 	public int getId() {
 		return id;
 	}
@@ -85,4 +79,10 @@ public class Enseignant implements Serializable {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
+	public List<Matiere> getListMatiere() {
+		return listMatiere;
+	}
+	public void setListMatiere(List<Matiere> listMatiere) {
+		this.listMatiere = listMatiere;
+	}	
 }
